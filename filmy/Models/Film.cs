@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 using System.Data.Entity;
 
 namespace filmy.Models
@@ -28,7 +24,7 @@ namespace filmy.Models
         [Display(Name = "Premiera")]
         private string premiera;
 
-        public class FilmDB : DbContext
+        public class FilmDBContext : DbContext
         {
             public DbSet<Film> Filmy { get; set; }
         }
