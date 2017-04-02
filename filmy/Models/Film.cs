@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
@@ -8,21 +9,30 @@ namespace filmy.Models
     public class Film
     {
         [Key]
-        private long id;
-        [Display(Name = "Nazwa")]
-        private string nazwa;
+        public long id { get; set; }
+
+        [Display(Name = "Tytuł")]
+        public string tytul { get; set; }
+
         [Display(Name = "Typ")]
-        private string typ;
+        public string typ { get; set; }
+
         [Display(Name = "Gatunek")]
-        private string gatunek;
+        public string gatunek { get; set; }
+
         [Display(Name = "Reżyseria")]
-        private string rezyseria;
+        public string rezyseria { get; set; }
+
         [Display(Name = "Scenariusz")]
-        private string scenariusz;
+        public string scenariusz { get; set; }
+
         [Display(Name = "Produkcja")]
-        private string produkcja;
+        public string produkcja { get; set; }
+
         [Display(Name = "Premiera")]
-        private string premiera;
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime premiera { get; set; }
 
         public class FilmDBContext : DbContext
         {

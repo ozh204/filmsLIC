@@ -1,0 +1,78 @@
+﻿@model IEnumerable<filmy.Models.Film>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm())
+    {
+    <p>
+        Title: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </p>
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tytul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gatunek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rezyseria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scenariusz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.produkcja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.premiera)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tytul)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gatunek)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rezyseria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scenariusz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.produkcja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.premiera)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
